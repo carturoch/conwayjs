@@ -1,0 +1,13 @@
+$body-color: whitesmoke;
+
+body {
+  color: $body-color;
+  font-family: sans-serif;
+}
+
+#container {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 20px;
+}
