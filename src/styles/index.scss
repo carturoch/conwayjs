@@ -1,13 +1,73 @@
-$body-color: whitesmoke;
+$color-light: white;
+$color-not-so-light: whitesmoke;
+$color-dark: #17183b;
+$color-strong: #a11692;
 
+html,
 body {
-  color: $body-color;
+  color: $color-not-so-light;
   font-family: sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
-#container {
+header {
+  background: $color-light;
+
+  ul {
+    margin: 0;
+    padding: 10px 0;
+    text-align: center;
+
+    li {
+      display: inline-block;
+      vertical-align: middle;
+    }
+  }
+}
+
+.info {
+  margin: 0;
+  padding: 0;
+  color: $color-dark;
+  font-family: monospace;
+  font-size: 18px;
+
+  strong {
+    color: $color-strong;
+    font-weight: bold;
+  }
+}
+
+#board {
   width: 100%;
   height: 100%;
   margin: 0;
-  padding: 20px;
+  padding: 0;
+  background: $color-not-so-light;
+}
+
+#trigger {
+  border: 0;
+  background: transparent;
+  box-sizing: border-box;
+  width: 0;
+  height: 23px;
+
+  border-color: transparent transparent transparent $color-dark;
+  transition: 100ms all ease;
+  cursor: pointer;
+
+  // play state
+  border-style: solid;
+  border-width: 11px 0 11px 24px;
+
+  &.paused {
+    border-style: double;
+    border-width: 0px 0 0px 24px;
+  }
+
+  &:hover {
+    border-color: transparent transparent transparent $color-strong;
+  }
 }
