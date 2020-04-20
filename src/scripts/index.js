@@ -13,7 +13,8 @@ let stage = new Konva.Stage({
   height: window.innerHeight - 44,
 });
 
-let board = new Board(40, 20, stage);
+let generationCounter = document.querySelector('#generation');
+let board = new Board(40, 20, stage, generationCounter);
 board.render();
 
 document.querySelector('#trigger').addEventListener('click', function (e) {

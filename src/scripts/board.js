@@ -1,13 +1,14 @@
 import Cell from './cell.js';
 
 class Board {
-  constructor(width, height, stage) {
+  constructor(width, height, stage, generation) {
     this.width = width;
     this.height = height;
     this.stage = stage;
     this.cells = [];
     this.layer = new Konva.Layer();
     this.initCells();
+    this.generation = generation;
   }
 
   initCells() {
@@ -77,6 +78,7 @@ class Board {
       }
     }
     this.flushState(newState);
+    this.updateGeneration();
   }
 
   flushState(state) {
@@ -92,6 +94,11 @@ class Board {
     this.stage.width(newWidth);
     this.stage.height(newHeight);
     this.stage.draw();
+  }
+
+  updateGeneration() {
+    let current = Number(this.generation.textContent);
+    this.generation.textContent = current + 1;
   }
 }
 
