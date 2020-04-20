@@ -44,13 +44,13 @@ class Cell {
     self.state = 0;
 
     if (!self.rect.parent) {
-      self.rect.fill('#EEE');
-      self.rect.stroke('#CCC');
+      self.rect.fill('whitesmoke');
+      self.rect.stroke('#efefef');
       self.rect.strokeWidth(1);
     } else {
       let tween = new Konva.Tween({
         node: self.rect,
-        duration: .8,
+        duration: .5,
         fill: '#EEE',
         stroke: '#CCC'
       });
@@ -66,7 +66,7 @@ class Cell {
       node: self.rect,
       duration: .5,
       fill: '#ff6363',
-      stroke: '#555'
+      stroke: '#ff6363'
     });
     tween.play();
   }

@@ -3,7 +3,7 @@ let interval = null;
 function play(board) {
   interval = setInterval(() => {
     board.cycle();
-  }, 800);
+  }, 600);
 }
 
 function pause() {

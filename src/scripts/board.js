@@ -6,12 +6,13 @@ class Board {
     this.height = height;
     this.stage = stage;
     this.cells = [];
+    this.layer = new Konva.Layer();
     this.initCells();
   }
 
   initCells() {
-    let cellWidth = (this.stage.width() / this.width) - 2;
-    let cellHeight = (this.stage.height() / this.height) - 2;
+    let cellWidth = (this.stage.width() / this.width);
+    let cellHeight = (this.stage.height() / this.height);
 
     for (let i = 0; i < this.height; i++) {
       this.cells[i] = [];
@@ -28,18 +29,16 @@ class Board {
   }
 
   render() {
-    let layer = new Konva.Layer();
-
     for (let i = 0; i < this.height; i++) {
       for (let j = 0; j < this.width; j++) {
-        layer.add(this.cells[i][j].rect);
+        this.layer.add(this.cells[i][j].rect);
       }
     }
 
-    this.stage.add(layer);
-    layer.draw();
+    this.stage.add(this.layer);
+    this.layer.draw();
 
-    return layer;
+    return this.layer;
   }
 
   neighborCount(offsetY, offsetX) {
@@ -87,6 +86,12 @@ class Board {
         this.cells[i][j].update(newState);
       }
     }
+  }
+
+  rescale(newWidth, newHeight) {
+    this.stage.width(newWidth);
+    this.stage.height(newHeight);
+    this.stage.draw();
   }
 }
 

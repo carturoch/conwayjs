@@ -9,11 +9,11 @@ import {
 
 let stage = new Konva.Stage({
   container: 'board',
-  width: 1000,
-  height: 1000
+  width: window.innerWidth,
+  height: window.innerHeight - 44,
 });
 
-let board = new Board(50, 50, stage);
+let board = new Board(40, 20, stage);
 board.render();
 
 document.querySelector('#trigger').addEventListener('click', function (e) {
@@ -26,4 +26,9 @@ document.querySelector('#trigger').addEventListener('click', function (e) {
   this.classList.toggle('paused');
 });
 
-console.log('No UI triggers yet. Use play() and pause()');
+window.addEventListener('resize', function (e) {
+  let newWidth = window.innerWidth;
+  let newHeight = window.innerHeight - 44;
+  board.rescale(newWidth, newHeight);
+  console.log(`Stage resized to [w: ${newWidth}, h: ${newHeight}]`);
+});
