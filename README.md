@@ -4,4 +4,4 @@
 
 Web implementation of CGoL 
 
-![Screen Capture](https://github.com/carturoch/conwayjs/img/capture.gif)
+![Screen Capture](https://github.com/carturoch/conwayjs/blob/master/img/capture.gif)
